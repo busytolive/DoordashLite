@@ -1,0 +1,15 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.DoorDashLite" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/doordashRed</item>
+        <item name="colorPrimaryDark">@color/doordashRedDark</item>
+        <item name="colorOnPrimary">@color/white</item>
+    </style>
+    <style name="Theme.DoorDashLiteDetail" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/doordashRed</item>
+        <item name="colorPrimaryDark">@color/doordashRedDark</item>
+        <item name="colorOnPrimary">@color/white</item>
+    </style>
+</resources>
