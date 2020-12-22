@@ -33,7 +33,7 @@ public class RestaurantListAdaptor extends PagedListAdapter<Restaurant, Restaura
     @NonNull
     @Override
     public RestaurantItemViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        RestaurantListItemBinding binding = RestaurantListItemBinding.inflate(LayoutInflater.from(parent.getContext()));
+        RestaurantListItemBinding binding = RestaurantListItemBinding.inflate(LayoutInflater.from(parent.getContext()), parent, false);
         return new RestaurantItemViewHolder(binding);
     }
 

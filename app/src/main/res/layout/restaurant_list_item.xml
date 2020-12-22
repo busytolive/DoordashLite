@@ -20,13 +20,14 @@
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/text_name"
         style="@style/TextAppearance.AppCompat"
-        android:layout_width="160dp"
+        android:layout_width="0dp"
         android:layout_height="42dp"
         android:layout_marginStart="10dp"
         android:gravity="bottom"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/text_type"
         app:layout_constraintLeft_toRightOf="@+id/image_logo"
+        app:layout_constraintRight_toLeftOf="@+id/guideline2"
         app:layout_constraintTop_toTopOf="@+id/image_logo"
         app:layout_constraintVertical_chainStyle="packed"
         tools:text="Chipolte" />
@@ -34,11 +35,12 @@
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/text_type"
         style="@style/TextAppearance.AppCompat.Caption"
-        android:layout_width="160dp"
+        android:layout_width="0dp"
         android:layout_height="32dp"
         android:layout_marginBottom="8dp"
         android:gravity="top"
         app:layout_constraintBottom_toBottomOf="@+id/image_logo"
+        app:layout_constraintRight_toLeftOf="@+id/guideline2"
         app:layout_constraintLeft_toLeftOf="@+id/text_name"
         app:layout_constraintTop_toBottomOf="@+id/text_name"
         tools:text="Mexican" />
@@ -50,6 +52,12 @@
         android:gravity="end"
         app:layout_constraintBottom_toBottomOf="@+id/text_type"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/text_type"
         tools:text="33 mins" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_end="96dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>
