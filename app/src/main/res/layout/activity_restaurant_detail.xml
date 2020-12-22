@@ -1,101 +1,96 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_height="match_parent">
+    android:id="@+id/detailedView"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="@dimen/layout_padding">
 
-    <LinearLayout
-        android:id="@+id/detailedView"
+    <ImageView
+        android:id="@+id/restaurant_imageView"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/detail_image_height"
+        android:scaleType="fitCenter"
+        android:layout_gravity="center"
+        android:contentDescription="@string/restaurant_image"
+        tools:src="@drawable/ic_launcher_background" />
+
+    <ProgressBar
+        android:id="@+id/content_progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:visibility="visible" />
+
+    <TextView
+        android:id="@+id/restaurant_details_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="@dimen/layout_padding">
+        android:textColor="@android:color/black"
+        android:textSize="@dimen/large_text_size"
+        tools:text="Chipolte"
+        android:textStyle="bold" />
 
-        <ImageView
-            android:id="@+id/restaurant_imageView"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/detail_image_height"
-            android:scaleType="fitCenter"
-            android:layout_gravity="center"
-            android:contentDescription="Restaurant image"
-            tools:src="@drawable/ic_launcher_background" />
+    <TextView
+        android:id="@+id/restaurant_details_description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="@dimen/padding"
+        android:paddingBottom="@dimen/padding"
+        android:textSize="@dimen/text_size"
+        tools:text="Mexican" />
 
-        <ProgressBar
-            android:id="@+id/content_progressBar"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_gravity="center"
-            android:visibility="visible" />
+    <TextView
+        android:id="@+id/restaurant_details_rating"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="@dimen/padding"
+        android:paddingBottom="@dimen/padding"
+        tools:text="4.0 / 5.0 (23 ratings)" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:paddingTop="@dimen/padding">
 
         <TextView
-            android:id="@+id/restaurant_details_name"
-            android:layout_width="match_parent"
+            android:id="@+id/restaurant_details_delivery_fee"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@android:color/black"
-            android:textSize="@dimen/large_text_size"
-            tools:text="Chipolte"
+            android:gravity="bottom"
+            tools:text="$3.00"
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/restaurant_details_description"
-            android:layout_width="match_parent"
+            android:id="@+id/restaurant_details_status"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:paddingTop="@dimen/padding"
-            android:paddingBottom="@dimen/padding"
-            android:textSize="@dimen/text_size"
-            tools:text="Mexican" />
+            android:layout_weight="1"
+            android:gravity="end|bottom"
+            android:textColor="@android:color/black"
+            tools:text="30 - 40 mins"
+            android:textStyle="bold" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:paddingBottom="@dimen/padding">
 
         <TextView
-            android:id="@+id/restaurant_details_rating"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingTop="@dimen/padding"
-            android:paddingBottom="@dimen/padding"
-            tools:text="4.0 / 5.0 (23 ratings)" />
+            android:gravity="top"
+            android:text="@string/delivery_fee" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal"
-            android:paddingTop="@dimen/padding">
-
-            <TextView
-                android:id="@+id/restaurant_details_delivery_fee"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@android:color/black"
-                android:gravity="bottom"
-                tools:text="$3.00"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/restaurant_details_status"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="end|bottom"
-                android:textColor="@android:color/black"
-                tools:text="30 - 40 mins"
-                android:textStyle="bold" />
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal"
-            android:paddingBottom="@dimen/padding">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="top"
-                android:text="delivery fee" />
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="top|end"
-                android:text="delivery time" />
-        </LinearLayout>
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="top|end"
+            android:text="@string/delivery_time" />
     </LinearLayout>
-</RelativeLayout>
+</LinearLayout>

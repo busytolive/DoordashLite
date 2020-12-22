@@ -9,7 +9,7 @@
         android:id="@+id/image_logo"
         android:layout_width="96dp"
         android:layout_height="74dp"
-        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
