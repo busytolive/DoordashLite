@@ -6,8 +6,11 @@ Doordash Lite is an Android app that has two screens:
 
 Discover(Portait)                   |  Landscape
 ------------------------- |-------------------------
-<img width="300px" src="images/sumsung_galaxy_s8+.png">  |  <img width="500px" src="images/sumsung_galaxy_s8_landscape.png">
+<img width="300px" src="images/sumsung_galaxy_s8+.png"/>  |  <img width="500px" src="images/sumsung_galaxy_s8_landscape.png"/>
 
 Restaurant Detail                   |
 ------------------------------------|
-<img width="300px" src="images/sumsung_s8+_restaurant_detail.png"> |
+<img width="300px" src="images/sumsung_s8+_restaurant_detail.png"/> |
+
+## Architecture
+<image src="images/doordash_lite_architecture.png"/>
