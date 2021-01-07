@@ -1,11 +1,7 @@
 package com.doordash.lite.repository;
 
 import com.doordash.lite.model.FeedResponse;
-import com.doordash.lite.model.Restaurant;
 import com.doordash.lite.model.RestaurantV2;
-
-import java.util.List;
-
 import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Path;

@@ -1,12 +1,9 @@
-package com.doordash.lite;
+package com.doordash.lite.repository;
 
 import androidx.paging.PositionalDataSource;
 
 import com.doordash.lite.model.FeedResponse;
 import com.doordash.lite.model.Restaurant;
-import com.doordash.lite.repository.RestaurantDataSource;
-import com.doordash.lite.repository.RestaurantRepository;
-import com.doordash.lite.repository.RestaurantWebService;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -111,3 +108,4 @@ public class RestaurantDataSourceTest {
         Mockito.verify(callback, Mockito.never()).onResult(Mockito.anyList(), Mockito.anyInt());
     }
 }
+

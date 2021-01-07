@@ -1,7 +1,9 @@
 package com.doordash.lite.model;
 
 /**
- * Data(partial) of a restaurant returned by API: https://api.doordash.com/v2/restaurant/{id}/
+ * Detailed Restaurant information.
+ *
+ * Fetched from API: https://api.doordash.com/v2/restaurant/{id}/
  */
 public class RestaurantV2 {
     private int id;

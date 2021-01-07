@@ -10,6 +10,9 @@ import androidx.recyclerview.widget.DiffUtil;
 import com.doordash.lite.databinding.RestaurantListItemBinding;
 import com.doordash.lite.model.Restaurant;
 
+/**
+ * Present the PagedList data of Restaurants properly in the RecyclerView
+ */
 public class RestaurantListAdaptor extends PagedListAdapter<Restaurant, RestaurantItemViewHolder> {
 
     private OnRestaurantClickEventListener mOnRestaurantClickListener;
@@ -42,6 +45,7 @@ public class RestaurantListAdaptor extends PagedListAdapter<Restaurant, Restaura
         Restaurant restaurant = getItem(position);
         if (restaurant != null) {
             holder.bind(restaurant);
+            // invoke RestaurantClickListener with the restaurant information that user clicks on.
             holder.itemView.setOnClickListener(view -> {
                 if (mOnRestaurantClickListener != null) {
                     mOnRestaurantClickListener.onRestaurantClick(restaurant);
@@ -50,6 +54,7 @@ public class RestaurantListAdaptor extends PagedListAdapter<Restaurant, Restaura
         }
     }
 
+    // Provide a way for client(Activity) to specify how to response user click on a item
     public void setOnRestaurantClickListener(OnRestaurantClickEventListener listener) {
         mOnRestaurantClickListener = listener;
     }

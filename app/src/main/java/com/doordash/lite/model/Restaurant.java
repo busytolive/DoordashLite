@@ -2,9 +2,10 @@ package com.doordash.lite.model;
 
 import java.util.List;
 
-
 /**
- * Restaurant(partial) data from API: https://api.doordash.com/v1/store_feed/?lat=37.422740&lng=-122.139956&offset=0&limit=500
+ * Restaurant meta data, usually to be shown in a restaurant list.
+ *
+ * Fetched from API: https://api.doordash.com/v1/store_feed/?lat=37.422740&lng=-122.139956&offset=0&limit=500
  */
 public class Restaurant {
 

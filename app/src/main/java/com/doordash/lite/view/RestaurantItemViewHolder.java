@@ -8,10 +8,11 @@ import com.doordash.lite.model.Restaurant;
 import com.squareup.picasso.Picasso;
 
 class RestaurantItemViewHolder extends RecyclerView.ViewHolder {
+    // view binding class instance for easily accessing views in Restaurant item
     private final RestaurantListItemBinding binding;
 
     public RestaurantItemViewHolder(RestaurantListItemBinding binding) {
-        super(binding.getRoot());
+        super(binding.getRoot()); // pass the current view to super constructor
         this.binding = binding;
     }
 

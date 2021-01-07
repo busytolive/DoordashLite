@@ -21,13 +21,12 @@ public class RestaurantDetailActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        // restore restaurant id from configuration change and system-initiated process death.
         if (!getIntent().hasExtra(INTENT_EXTRA_RESTAURANT_ID) && savedInstanceState != null) {
             id = savedInstanceState.getInt(SAVED_RESTAURANT_ID);
         } else {
             id = getIntent().getIntExtra(INTENT_EXTRA_RESTAURANT_ID, 0);
         }
-
-        setContentView(R.layout.activity_restaurant_detail);
 
         binding = ActivityRestaurantDetailBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());

@@ -30,11 +30,14 @@ public class MainActivity extends AppCompatActivity {
         RecyclerView recyclerView = binding.recyclerView;
         recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
         recyclerView.setAdapter(adaptor);
+        // launch RestaurantDetailActivity with id of the clicked restaurant
         adaptor.setOnRestaurantClickListener(restaurant -> {
             Intent intent = new Intent(MainActivity.this, RestaurantDetailActivity.class);
             intent.putExtra(INTENT_EXTRA_RESTAURANT_ID, restaurant.getId());
             startActivity(intent);
         });
+
+        // Observe restaurant list LiveData. when list is updated, submit to RecyclerView to display.
         RestaurantListViewModel viewModel = new ViewModelProvider(this).get(RestaurantListViewModel.class);
         viewModel.getRestaurantList().observe(this, restaurants -> {
             binding.progressBar.setVisibility(View.INVISIBLE);

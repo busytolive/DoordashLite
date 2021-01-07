@@ -22,14 +22,20 @@ import retrofit2.converter.gson.GsonConverterFactory;
 import static com.doordash.lite.repository.RestaurantWebService.BASE_URL;
 
 /**
- * Provide a clean API so that the rest of the app can retrieve Restaurant data easily,
- * without having to care where the data comes from, like remote APIs or local caches.
+ * Repository: provide clean API for data layer. Hide the complexity of managing different
+ * data sources, like:
+ * memory
+ * Database
+ * Files
+ * Network / Web service
  */
 public class RestaurantRepository {
+    private static final String TAG = RestaurantRepository.class.getSimpleName();
+
     private static RestaurantRepository instance;
 
-    private static final String TAG = RestaurantRepository.class.getSimpleName();
     private final RestaurantWebService restaurantWebService;
+
     private LiveData<PagedList<Restaurant>> restaurantList;
 
     private RestaurantRepository() {
@@ -50,6 +56,16 @@ public class RestaurantRepository {
         return instance;
     }
 
+    /**
+     * Get a list of nearby restaurants(meta data)
+     *
+     * Return cache in memory if exists. Otherwise, fetch from Web API.
+     *
+     * @return A PageList of Restaurant as LiveData. The Paged List will be automatically filled
+     * with data by RestaurantDataSource when user scroll down in the RecyclerView.
+     *
+     * To refresh the list, call: restaurantList.getValue().getDataSource().invalidate();
+     */
     public LiveData<PagedList<Restaurant>> getRestaurantList() {
         PagedList.Config config = new PagedList.Config.Builder().setPageSize(50)
                 .setEnablePlaceholders(false)
@@ -61,6 +77,13 @@ public class RestaurantRepository {
         return restaurantList;
     }
 
+    /**
+     * Get detailed information of a restaurant.
+     * Always get the latest restaurant detail from web API.
+     *
+     * @param id restaurant id
+     * @return RestaurantV2 as LiveData
+     */
     public LiveData<RestaurantV2> getRestaurantDetail(int id) {
         MutableLiveData<RestaurantV2> restaurantLiveData = new MutableLiveData<>();
         restaurantWebService.getRestaurantDetail(id).enqueue(new Callback<RestaurantV2>() {
@@ -82,7 +105,13 @@ public class RestaurantRepository {
         return restaurantLiveData;
     }
 
-    public RestaurantWebService getRestaurantWebService() {
+    /**
+     * Expose the Restaurant web service for other repository classes that need access web API directly,
+     * like RestaurantDataSource.
+     *
+     * May consider remove this method and create a separate singleton class for RestaurantWebService.
+     */
+    RestaurantWebService getRestaurantWebService() {
         return restaurantWebService;
     }
 }
